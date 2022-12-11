@@ -1,26 +1,27 @@
 plugins {
     id 'java'
-    id "com.github.johnrengelman.shadow" version "7.1.0"
     id 'maven-publish'
 }
 
-group 'com.example'
+group 'me.window'
 version '1.0.0'
 
-repositories {
-    mavenCentral()
-    maven { url 'https://jitpack.io' }
-}
+allprojects {
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
 
-dependencies {
-    compileOnly 'com.github.Minestom:Minestom:-SNAPSHOT'
+    dependencies {
+        compileOnly 'com.github.Minestom:Minestom:-SNAPSHOT'
+    }
 }
 
 publishing {
     publications {
         release(MavenPublication) {
             groupId = 'com.github.MinestomPlugins'
-            artifactId = 'minestom-example-library'
+            artifactId = 'lib-permission'
             version = '1.0.0'
         }
     }
