@@ -1,10 +1,11 @@
 plugins {
     id 'java'
     id "com.github.johnrengelman.shadow" version "7.1.0"
+    id 'maven-publish'
 }
 
 group 'com.example'
-version '1.0-SNAPSHOT'
+version '1.0.0'
 
 repositories {
     mavenCentral()
@@ -13,4 +14,14 @@ repositories {
 
 dependencies {
     compileOnly 'com.github.Minestom:Minestom:-SNAPSHOT'
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.MinestomPlugins'
+            artifactId = 'minestom-example-library'
+            version = '1.0.0'
+        }
+    }
 }
