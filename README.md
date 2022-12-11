@@ -1,4 +1,4 @@
-<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/MinestomPlugins/minestom-library-template?style=flat-square"> <img alt="JitPack" src="https://img.shields.io/jitpack/version/com.github.MinestomPlugins/minestom-library-template?style=flat-square">
+<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/MinestomPlugins/lib-permissions?style=flat-square"> <img alt="JitPack" src="https://img.shields.io/jitpack/version/com.github.MinestomPlugins/lib-permissions?style=flat-square">
 
 # minestom-plugin-template
 
