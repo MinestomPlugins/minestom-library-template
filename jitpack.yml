@@ -1,0 +1,5 @@
+jdk:
+  - zulu18
+before_install:
+  - sdk install java 18.0.2-zulu
+  - sdk use java 18.0.2-zulu
