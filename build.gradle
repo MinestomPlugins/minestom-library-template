@@ -23,6 +23,8 @@ publishing {
             groupId = 'com.github.MinestomPlugins'
             artifactId = 'lib-permission'
             version = '1.0.0'
+
+            from components.java
         }
     }
 }
