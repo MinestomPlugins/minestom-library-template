@@ -128,6 +128,27 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="lib-permissions [publishReleasePublicationToMavenLocal]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="publishReleasePublicationToMavenLocal" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="lib-permissions [publishToMavenLocal]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -151,12 +172,14 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.build" />
+      <item itemvalue="Gradle.lib-permissions [publishReleasePublicationToMavenLocal]" />
       <item itemvalue="Gradle.lib-permissions [publishToMavenLocal]" />
       <item itemvalue="Gradle.lib-permissions [build]" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.lib-permissions [publishToMavenLocal]" />
+        <item itemvalue="Gradle.lib-permissions [publishReleasePublicationToMavenLocal]" />
         <item itemvalue="Gradle.lib-permissions [build]" />
       </list>
     </recent_temporary>
