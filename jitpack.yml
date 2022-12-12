@@ -1,4 +1,8 @@
 # Tell Jitpack to build using Java 18 (defaults to 8)
+
+jdk:
+  - zulu18
+
 before_install:
   - source "$HOME/.sdkman/bin/sdkman-init.sh"
   - sdk update
