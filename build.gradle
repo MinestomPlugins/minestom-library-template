@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'java-library'
     id 'maven-publish'
 }
 
@@ -40,4 +41,11 @@ java {
 wrapper {
     gradleVersion = "7.6"
     distributionType = Wrapper.DistributionType.ALL
+}
+
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(18)
+    }
 }
