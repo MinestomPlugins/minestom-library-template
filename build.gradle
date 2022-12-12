@@ -7,9 +7,6 @@ plugins {
 group 'com.github.MinestomPlugins'
 version '1.0.0'
 
-sourceCompatibility = 18
-targetCompatibility = 18
-
 allprojects {
     repositories {
         mavenCentral()
