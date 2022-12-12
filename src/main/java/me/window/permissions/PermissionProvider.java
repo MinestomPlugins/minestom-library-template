@@ -24,7 +24,7 @@ public class PermissionProvider {
         if (player.hasPermission("*")|| player.getPermissionLevel() >= opLevel)
             return true;
         for(String perm : extensionPermissions) {
-            if(player.hasPermission(perm + ".*")) return true;
+            if(player.hasPermission(perm + ".*") || player.hasPermission(perm + "." + permission)) return true;
         }
         return false;
     }
