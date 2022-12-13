@@ -19,6 +19,15 @@ public class PermissionProvider {
         this.extensionPermissions = extensionPermission;
         this.opLevel = opLevel;
     }
+    
+    public void updatePermissions(String... extensionPermissions) {
+        this.extensionPermissions = extensionPermissions;
+        opLevel = 4;
+    }
+    public void updatePermissions(int opLevel, String... extensionPermission) {
+        this.extensionPermissions = extensionPermission;
+        this.opLevel = opLevel;
+    }
 
     public boolean hasExtensionPermission(Player player, String permission) {
         if (player.hasPermission("*")|| player.getPermissionLevel() >= opLevel)
