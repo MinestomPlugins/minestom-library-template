@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'com.github.MinestomPlugins'
-version '1.0.0'
+version '1.0.4'
 
 allprojects {
     repositories {
@@ -22,8 +22,8 @@ publishing {
     publications {
         release(MavenPublication) {
             groupId = 'com.github.MinestomPlugins'
-            artifactId = 'lib-permission'
-            version = '1.0.2'
+            artifactId = 'NextPermissions'
+            version = '1.0.4'
 
             from components.java
         }

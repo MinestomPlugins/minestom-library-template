@@ -54,4 +54,21 @@ public class PermissionProvider {
         return player.hasPermission("*") || player.hasPermission(permission) || player.getPermissionLevel() >= opLevel;
     }
 
+    public boolean hasExtensionPermission(Player player, String permission, int opLevel) {
+        if (player.hasPermission("*")|| player.getPermissionLevel() >= opLevel)
+            return true;
+        for(String perm : extensionPermissions) {
+            if(player.hasPermission(perm + ".*") || player.hasPermission(perm + "." + permission)) return true;
+        }
+        return false;
+    }
+
+    public boolean hasExtensionPermission(Player player, int opLevel) {
+        if(player.hasPermission("*") || player.getPermissionLevel() >= opLevel) return true;
+        for(String perm : extensionPermissions) {
+            if(player.hasPermission(perm)) return true;
+        }
+        return false;
+    }
+
 }
