@@ -8,28 +8,52 @@ import net.minestom.server.extensions.Extension;
 
 public class PermissionProvider {
 
-    String[] extensionPermissions;
-    int opLevel;
+    public String[] extensionPermissions;
+    public int opLevel;
 
+    /**
+     * Creates a new PermissionProvider
+     * @param extensionPermissions The permissions that this that will be checked
+     */
     public PermissionProvider(String... extensionPermissions) {
         this.extensionPermissions = extensionPermissions;
         opLevel = 4;
     }
-    public PermissionProvider(int opLevel, String... extensionPermission) {
-        this.extensionPermissions = extensionPermission;
+    /**
+     * Creates a new PermissionProvider
+     * @param opLevel The permission level where a player will be able to bypass permissions
+     * @param extensionPermissions The permissions that this that will be checked
+     */
+    public PermissionProvider(int opLevel, String... extensionPermissions) {
+        this.extensionPermissions = extensionPermissions;
         this.opLevel = opLevel;
     }
     
+    /**
+     * Replaces permission with new permissions
+     * @param extensionPermissions The new permissions
+     */
     public void updatePermissions(String... extensionPermissions) {
         this.extensionPermissions = extensionPermissions;
         opLevel = 4;
     }
-    public void updatePermissions(int opLevel, String... extensionPermission) {
-        this.extensionPermissions = extensionPermission;
+    /**
+     * Replaces permission with new permissions
+     * @param opLevel the new op level
+     * @param extensionPermissions The new permissions
+     */
+    public void updatePermissions(int opLevel, String... extensionPermissions) {
+        this.extensionPermissions = extensionPermissions;
         this.opLevel = opLevel;
     }
 
-    public boolean hasExtensionPermission(Player player, String permission) {
+    /**
+     * Checks if the player has a subpermission
+     * @param player the player to check
+     * @param permission the permission
+     * @return if the player has the permission
+     */
+    public boolean hasPermission(Player player, String permission) {
         if (player.hasPermission("*")|| player.getPermissionLevel() >= opLevel)
             return true;
         for(String perm : extensionPermissions) {
@@ -38,7 +62,12 @@ public class PermissionProvider {
         return false;
     }
 
-    public boolean hasExtensionPermission(Player player) {
+    /**
+     * Checks if the player has one of the provider permissions
+     * @param player the player to check
+     * @return if the player has permission
+     */
+    public boolean hasPermission(Player player) {
         if(player.hasPermission("*") || player.getPermissionLevel() >= opLevel) return true;
         for(String perm : extensionPermissions) {
             if(player.hasPermission(perm)) return true;
@@ -46,15 +75,14 @@ public class PermissionProvider {
         return false;
     }
 
-    public static boolean hasPermission(Player player, String permission) {
-        return player.hasPermission("*") || player.hasPermission(permission) || player.getPermissionLevel() >= 4;
-    }
-
-    public static boolean hasPermission(Player player, String permission, int opLevel) {
-        return player.hasPermission("*") || player.hasPermission(permission) || player.getPermissionLevel() >= opLevel;
-    }
-
-    public boolean hasExtensionPermission(Player player, String permission, int opLevel) {
+    /**
+     * Checks if the player has a subpermission
+     * @param player the player to check
+     * @param permission the permission
+     * @param opLevel override the default provider op level
+     * @return if the player has the permission
+     */
+    public boolean hasPermission(Player player, String permission, int opLevel) {
         if (player.hasPermission("*")|| player.getPermissionLevel() >= opLevel)
             return true;
         for(String perm : extensionPermissions) {
@@ -63,7 +91,13 @@ public class PermissionProvider {
         return false;
     }
 
-    public boolean hasExtensionPermission(Player player, int opLevel) {
+    /**
+     * Checks if the player has one of the provider permissions
+     * @param player the player to check
+     * @param opLevel override the default provider op level
+     * @return if the player has permission
+     */
+    public boolean hasPermission(Player player, int opLevel) {
         if(player.hasPermission("*") || player.getPermissionLevel() >= opLevel) return true;
         for(String perm : extensionPermissions) {
             if(player.hasPermission(perm)) return true;
