@@ -2,8 +2,14 @@ package me.window.permissions;
 
 import java.util.ArrayList;
 
+/**
+ *Subpermission of a {@link PermissionProvider PermissionProvider}
+ */
 public class SubPermission extends PermissionProvider {
 
+    /**
+     * THe parent permission.
+     */
     public PermissionProvider parent;
 
     /**

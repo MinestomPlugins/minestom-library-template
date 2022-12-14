@@ -6,9 +6,25 @@ import net.minestom.server.adventure.audience.Audiences;
 import net.minestom.server.entity.Player;
 import net.minestom.server.extensions.Extension;
 
+/**
+ *
+ *Easy methods for handling permissions.
+ * <pre></pre>
+ *See also: {@link GlobalPermissionProvider GlobalPermissionProvider}
+ *
+ */
 public class PermissionProvider {
 
+    /**
+     * Array of permissions
+     */
     public String[] extensionPermissions;
+    /**
+     *<pre>
+     *The minimum permission level where the player bypasses permission check.
+     *1-4, 5 to disable.
+     *</pre> 
+     */
     public int opLevel;
 
     /**
