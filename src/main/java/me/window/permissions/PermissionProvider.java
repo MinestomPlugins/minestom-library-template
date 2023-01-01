@@ -1,10 +1,6 @@
 package me.window.permissions;
 
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
-import net.minestom.server.adventure.audience.Audiences;
 import net.minestom.server.entity.Player;
-import net.minestom.server.extensions.Extension;
 
 /**
  *
@@ -16,9 +12,9 @@ import net.minestom.server.extensions.Extension;
 public class PermissionProvider {
 
     /**
-     * Array of permissions
+     * Permission
      */
-    public String[] extensionPermissions;
+    public String extensionPermission;
     /**
      *<pre>
      *The minimum permission level where the player bypasses permission check.
@@ -29,37 +25,37 @@ public class PermissionProvider {
 
     /**
      * Creates a new PermissionProvider
-     * @param extensionPermissions The permissions that this that will be checked
+     * @param extensionPermission The permission that this that will be checked
      */
-    public PermissionProvider(String... extensionPermissions) {
-        this.extensionPermissions = extensionPermissions;
+    public PermissionProvider(String extensionPermission) {
+        this.extensionPermission = extensionPermission;
         opLevel = 4;
     }
     /**
      * Creates a new PermissionProvider
      * @param opLevel The permission level where a player will be able to bypass permissions
-     * @param extensionPermissions The permissions that this that will be checked
+     * @param extensionPermission The permission that this that will be checked
      */
-    public PermissionProvider(int opLevel, String... extensionPermissions) {
-        this.extensionPermissions = extensionPermissions;
+    public PermissionProvider(int opLevel, String extensionPermission) {
+        this.extensionPermission = extensionPermission;
         this.opLevel = opLevel;
     }
     
     /**
      * Replaces permission with new permissions
-     * @param extensionPermissions The new permissions
+     * @param extensionPermission The new permissions
      */
-    public void updatePermissions(String... extensionPermissions) {
-        this.extensionPermissions = extensionPermissions;
+    public void updatePermissions(String extensionPermission) {
+        this.extensionPermission = extensionPermission;
         opLevel = 4;
     }
     /**
      * Replaces permission with new permissions
      * @param opLevel the new op level
-     * @param extensionPermissions The new permissions
+     * @param extensionPermission The new permissions
      */
-    public void updatePermissions(int opLevel, String... extensionPermissions) {
-        this.extensionPermissions = extensionPermissions;
+    public void updatePermissions(int opLevel, String extensionPermission) {
+        this.extensionPermission = extensionPermission;
         this.opLevel = opLevel;
     }
 
@@ -72,10 +68,7 @@ public class PermissionProvider {
     public boolean hasPermission(Player player, String permission) {
         if (player.hasPermission("*")|| player.getPermissionLevel() >= opLevel)
             return true;
-        for(String perm : extensionPermissions) {
-            if(player.hasPermission(perm + ".*") || player.hasPermission(perm + "." + permission)) return true;
-        }
-        return false;
+        return player.hasPermission(extensionPermission + ".*") || player.hasPermission(extensionPermission + "." + permission);
     }
 
     /**
@@ -85,10 +78,7 @@ public class PermissionProvider {
      */
     public boolean hasPermission(Player player) {
         if(player.hasPermission("*") || player.getPermissionLevel() >= opLevel) return true;
-        for(String perm : extensionPermissions) {
-            if(player.hasPermission(perm)) return true;
-        }
-        return false;
+        return player.hasPermission(extensionPermission);
     }
 
     /**
@@ -101,10 +91,7 @@ public class PermissionProvider {
     public boolean hasPermission(Player player, String permission, int opLevel) {
         if (player.hasPermission("*")|| player.getPermissionLevel() >= opLevel)
             return true;
-        for(String perm : extensionPermissions) {
-            if(player.hasPermission(perm + ".*") || player.hasPermission(perm + "." + permission)) return true;
-        }
-        return false;
+        return player.hasPermission(extensionPermission + ".*") || player.hasPermission(extensionPermission + "." + permission);
     }
 
     /**
@@ -115,10 +102,7 @@ public class PermissionProvider {
      */
     public boolean hasPermission(Player player, int opLevel) {
         if(player.hasPermission("*") || player.getPermissionLevel() >= opLevel) return true;
-        for(String perm : extensionPermissions) {
-            if(player.hasPermission(perm)) return true;
-        }
-        return false;
+        return player.hasPermission(extensionPermission);
     }
 
 }
